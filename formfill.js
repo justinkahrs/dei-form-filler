@@ -4,14 +4,17 @@ const { GoogleGenAI } = require("@google/genai");
 (async () => {
   try {
     // Launch Puppeteer (set headless: false for debugging)
-    const browser = await puppeteer.launch({ headless: false, defaultViewport: null });
+    const browser = await puppeteer.launch({
+      headless: false,
+      defaultViewport: null,
+    });
     const page = await browser.newPage();
 
     // Navigate to the page with your form
     await page.goto("https://enddei.ed.gov");
 
     // Gemini API configuration using GoogleGenAI package
-    const geminiApiKey = "AIzaSyCVeS3IqLXKjsgwMrnzNESVo3RAfmG5hqs";
+    const geminiApiKey = "YOUR_KEY_HERE";
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
 
     // Generate content using the AI model with structured JSON output
